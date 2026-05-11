@@ -1837,7 +1837,7 @@
     <!-- 版权保护 -->
     <script>
     (function(){
-        document.addEventListener('contextmenu',e=>{e.preventDefault();alert('择天禅卡 © 择天老师\n\n版权保护中，禁止复制');});
+        document.addEventListener('contextmenu',e=>{e.preventDefault();alert(t('copyrightAlert'));});
         document.addEventListener('selectstart',e=>e.preventDefault());
         document.addEventListener('copy',e=>e.preventDefault());
         document.addEventListener('dragstart',e=>e.preventDefault());
@@ -1887,7 +1887,7 @@
     function checkDailyLimit() {
         const usage = getTodayUsage();
         if (usage >= FREE_DAILY_LIMIT) {
-            alert('今日占卜次数已用完，明天再来~\n获取完整版请访问官网: zetian.i-ching-ai.com | 微信小程序搜「易学轻松玩」');
+            alert(t('dailyLimitMsg'));
             return false;
         }
         return true;
@@ -1910,7 +1910,7 @@
         const remaining = FREE_DAILY_LIMIT - usage;
         const display = document.getElementById('dailyUsageDisplay');
         if (display) {
-            display.textContent = '今日剩余：' + remaining + '次';
+            display.textContent = t('dailyRemaining') + remaining + t('dailyUnit');
             if (remaining <= 0) {
                 display.style.color = '#ff6b6b';
             } else if (remaining === 1) {
@@ -1939,36 +1939,36 @@
                 <span class="logo-icon">🧘</span>
                 择天<span style="background: linear-gradient(135deg, #3d7a8b, #F472B6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">禅卡</span>
             </div>
-            <div class="subtitle">觉知当下 · 静心感悟</div>
+            <div class="subtitle" data-i18n="subtitle">觉知当下 · 静心感悟</div>
         </div>
         
         <div class="content">
             <div class="section active" data-tab="home">
                 <div class="welcome-card">
                     <div class="welcome-icon">🪷</div>
-                    <div class="welcome-title" id="welcomeTitle">静心 · 觉察 · 当下 ✨</div>
-                    <div class="welcome-text" id="welcomeText">放下杂念，感受此刻<br>让禅卡为你映照内心的智慧~</div>
+                    <div class="welcome-title" id="welcomeTitle" data-i18n="welcomeTitle">静心 · 觉察 · 当下 ✨</div>
+                    <div class="welcome-text" id="welcomeText" data-i18n="welcomeText">放下杂念，感受此刻<br>让禅卡为你映照内心的智慧~</div>
                 </div>
                 
                 
                 <div style="background: linear-gradient(135deg, rgba(201,168,108,0.15), rgba(201,168,108,0.05)); border-radius: 16px; padding: 20px; margin-bottom: 24px; text-align: center; border: 1px solid rgba(201,168,108,0.3);">
                     <div style="font-size: 32px; margin-bottom: 10px;">🪷</div>
-                    <div style="font-size: 15px; color: var(--accent-gold); margin-bottom: 8px;">获取完整版解锁更多精彩</div>
-                    <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">• 全部9种牌阵类型<br>• 无限占卜次数<br>• 完整历史记录</div>
-                    <a href="https://zetian.i-ching-ai.com" target="_blank" style="background: linear-gradient(135deg, var(--accent-gold), #e8c67a); border: none; padding: 10px 24px; border-radius: 20px; color: #0d1f2d; font-size: 14px; cursor: pointer; text-decoration: none; font-weight: bold;">✨ 官网获取完整版</a>
+                    <div style="font-size: 15px; color: var(--accent-gold); margin-bottom: 8px;" data-i18n="unlockFull">获取完整版解锁更多精彩</div>
+                    <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;" data-i18n="unlockFullList">• 全部9种牌阵类型<br>• 无限占卜次数<br>• 完整历史记录</div>
+                    <a href="https://zetian.i-ching-ai.com" target="_blank" style="background: linear-gradient(135deg, var(--accent-gold), #e8c67a); border: none; padding: 10px 24px; border-radius: 20px; color: #0d1f2d; font-size: 14px; cursor: pointer; text-decoration: none; font-weight: bold;" data-i18n="getFullVersion">✨ 官网获取完整版</a>
                 </div>
                 
                 <div class="spread-grid">
                     <div class="spread-card" data-spread="three">
                         <div class="spread-icon">🌙</div>
                         <div class="spread-info">
-                            <h3>时间之流</h3>
+                            <h3 data-i18n="spreadThreeName">时间之流</h3>
                             <div class="en-name">Three Card Spread</div>
-                            <p>探索过去、现在与未来的时间线，清晰看见事情的发展脉络</p>
+                            <p data-i18n="spreadThreeDesc">探索过去、现在与未来的时间线，清晰看见事情的发展脉络</p>
                             <div class="spread-tags">
-                                <span class="spread-tag">过去</span>
-                                <span class="spread-tag">现在</span>
-                                <span class="spread-tag">未来</span>
+                                <span class="spread-tag" data-i18n="tagPast">过去</span>
+                                <span class="spread-tag" data-i18n="tagPresent">现在</span>
+                                <span class="spread-tag" data-i18n="tagFuture">未来</span>
                             </div>
                         </div>
                         <span class="spread-arrow">›</span>
@@ -1977,13 +1977,13 @@
                     <div class="spread-card" data-spread="choice">
                         <div class="spread-icon">⚖️</div>
                         <div class="spread-info">
-                            <h3>二选一</h3>
+                            <h3 data-i18n="spreadChoiceName">二选一</h3>
                             <div class="en-name">Choice Spread</div>
-                            <p>纠结选A还是选B？看看两条路各自的发展趋势吧</p>
+                            <p data-i18n="spreadChoiceDesc">纠结选A还是选B？看看两条路各自的发展趋势吧</p>
                             <div class="spread-tags">
-                                <span class="spread-tag">现状</span>
-                                <span class="spread-tag">A结果</span>
-                                <span class="spread-tag">B结果</span>
+                                <span class="spread-tag" data-i18n="tagCurrent">现状</span>
+                                <span class="spread-tag" data-i18n="tagResultA">A结果</span>
+                                <span class="spread-tag" data-i18n="tagResultB">B结果</span>
                             </div>
                         </div>
                         <span class="spread-arrow">›</span>
@@ -1992,13 +1992,13 @@
                     <div class="spread-card" data-spread="love">
                         <div class="spread-icon">💫</div>
                         <div class="spread-info">
-                            <h3>恋爱关系</h3>
+                            <h3 data-i18n="spreadLoveName">恋爱关系</h3>
                             <div class="en-name">Love Relationship</div>
-                            <p>探索恋爱关系中的双方状态与未来发展</p>
+                            <p data-i18n="spreadLoveDesc">探索恋爱关系中的双方状态与未来发展</p>
                             <div class="spread-tags">
-                                <span class="spread-tag">对方</span>
-                                <span class="spread-tag">自己</span>
-                                <span class="spread-tag">6张牌</span>
+                                <span class="spread-tag" data-i18n="tagOther">对方</span>
+                                <span class="spread-tag" data-i18n="tagSelf">自己</span>
+                                <span class="spread-tag" data-i18n="tagCards6">6张牌</span>
                             </div>
                         </div>
                         <span class="spread-arrow">›</span>
@@ -2007,13 +2007,13 @@
                     <div class="spread-card" data-spread="meditation">
                         <div class="spread-icon">🧘</div>
                         <div class="spread-info">
-                            <h3>今日静心</h3>
+                            <h3 data-i18n="spreadMeditationName">今日静心</h3>
                             <div class="en-name">Daily Meditation</div>
-                            <p>抽一张牌，聆听今日潜意识给你的建议或任务</p>
+                            <p data-i18n="spreadMeditationDesc">抽一张牌，聆听今日潜意识给你的建议或任务</p>
                             <div class="spread-tags">
-                                <span class="spread-tag">单牌</span>
-                                <span class="spread-tag">指引</span>
-                                <span class="spread-tag">觉察</span>
+                                <span class="spread-tag" data-i18n="tagSingle">单牌</span>
+                                <span class="spread-tag" data-i18n="tagGuidance">指引</span>
+                                <span class="spread-tag" data-i18n="tagAwareness">觉察</span>
                             </div>
                         </div>
                         <span class="spread-arrow">›</span>
@@ -2022,13 +2022,13 @@
                     <div class="spread-card" data-spread="universal">
                         <div class="spread-icon">✨</div>
                         <div class="spread-info">
-                            <h3>万能牌阵</h3>
+                            <h3 data-i18n="spreadUniversalName">万能牌阵</h3>
                             <div class="en-name">Universal Spread</div>
-                            <p>适用于对任何人事物的看法，从头脑到潜意识的全面洞察</p>
+                            <p data-i18n="spreadUniversalDesc">适用于对任何人事物的看法，从头脑到潜意识的全面洞察</p>
                             <div class="spread-tags">
-                                <span class="spread-tag">理性</span>
-                                <span class="spread-tag">潜意识</span>
-                                <span class="spread-tag">4张牌</span>
+                                <span class="spread-tag" data-i18n="tagReason">理性</span>
+                                <span class="spread-tag" data-i18n="tagSubconscious">潜意识</span>
+                                <span class="spread-tag" data-i18n="tagCards4">4张牌</span>
                             </div>
                         </div>
                         <span class="spread-arrow">›</span>
@@ -2037,13 +2037,13 @@
                     <div class="spread-card" data-spread="diamond">
                         <div class="spread-icon">💎</div>
                         <div class="spread-info">
-                            <h3>钻石牌阵</h3>
+                            <h3 data-i18n="spreadDiamondName">钻石牌阵</h3>
                             <div class="en-name">Diamond Spread</div>
-                            <p>深入解析重要事件，从内外影响到最终答案</p>
+                            <p data-i18n="spreadDiamondDesc">深入解析重要事件，从内外影响到最终答案</p>
                             <div class="spread-tags">
-                                <span class="spread-tag">现状</span>
-                                <span class="spread-tag">影响</span>
-                                <span class="spread-tag">5张牌</span>
+                                <span class="spread-tag" data-i18n="tagCurrent">现状</span>
+                                <span class="spread-tag" data-i18n="tagInfluence">影响</span>
+                                <span class="spread-tag" data-i18n="tagCards5">5张牌</span>
                             </div>
                         </div>
                         <span class="spread-arrow">›</span>
@@ -2064,86 +2064,86 @@
             </div>
             
             <div class="section" data-tab="history">
-                <div class="spread-title">📜 我的占卜记录</div>
+                <div class="spread-title" id="historyTitle" data-i18n="historyTitle">📜 我的占卜记录</div>
                 <div class="history-list" id="historyListContainer">
                     <div class="empty-state">
                         <div class="empty-icon">🔮</div>
-                        <div class="empty-text">还没有占卜记录哦</div>
-                        <div class="empty-hint">快去开始你的第一次占卜吧~</div>
+                        <div class="empty-text" id="noRecordsText" data-i18n="noRecords">还没有占卜记录哦</div>
+                        <div class="empty-hint" id="noRecordsHint" data-i18n="noRecordsHint">快去开始你的第一次占卜吧~</div>
                     </div>
                 </div>
             </div>
             
             <div class="section" data-tab="about">
                 <div class="about-card">
-                    <h3>🧘 关于择天禅卡</h3>
-                    <p>择天禅卡基于奥修禅卡系统，共79张牌卡，不同于传统塔罗的预测功能，禅卡专注于当下的觉知与内心的映照 🪷</p>
-                    <p>禅卡没有正逆位之分，每一张牌都是当下状态的呈现，帮助你看见内在的智慧与可能性~</p>
+                    <h3 data-i18n="aboutTitle">🧘 关于择天禅卡</h3>
+                    <p data-i18n="aboutDesc1">择天禅卡基于奥修禅卡系统，共79张牌卡，不同于传统塔罗的预测功能，禅卡专注于当下的觉知与内心的映照 🪷</p>
+                    <p data-i18n="aboutDesc2">禅卡没有正逆位之分，每一张牌都是当下状态的呈现，帮助你看见内在的智慧与可能性~</p>
                     
                     <div class="stats-grid">
                         <div class="stat-item">
                             <div class="stat-num">79</div>
-                            <div class="stat-label">禅卡总数</div>
+                            <div class="stat-label" data-i18n="statTotal">禅卡总数</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-num">23</div>
-                            <div class="stat-label">大阿卡纳</div>
+                            <div class="stat-label" data-i18n="statMajor">大阿卡纳</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-num">56</div>
-                            <div class="stat-label">小阿卡纳</div>
+                            <div class="stat-label" data-i18n="statMinor">小阿卡纳</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-num">🧘</div>
-                            <div class="stat-label">师父牌</div>
+                            <div class="stat-label" data-i18n="statMaster">师父牌</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="about-card">
-                    <h3>📖 使用方法</h3>
+                    <h3 data-i18n="usageTitle">📖 使用方法</h3>
                     <div class="steps-list">
                         <div class="step-item">
                             <span class="step-num">1</span>
                             <div class="step-content">
-                                <strong>选择牌阵</strong>
-                                <span>根据你的问题类型选择合适的牌阵</span>
+                                <strong data-i18n="step1Title">选择牌阵</strong>
+                                <span data-i18n="step1Desc">根据你的问题类型选择合适的牌阵</span>
                             </div>
                         </div>
                         <div class="step-item">
                             <span class="step-num">2</span>
                             <div class="step-content">
-                                <strong>输入问题</strong>
-                                <span>在心中默念或在输入框写下你的疑问</span>
+                                <strong data-i18n="step2Title">输入问题</strong>
+                                <span data-i18n="step2Desc">在心中默念或在输入框写下你的疑问</span>
                             </div>
                         </div>
                         <div class="step-item">
                             <span class="step-num">3</span>
                             <div class="step-content">
-                                <strong>抽取塔罗牌</strong>
-                                <span>按照提示依次点击抽取牌张</span>
+                                <strong data-i18n="step3Title">抽取禅卡</strong>
+                                <span data-i18n="step3Desc">按照提示依次点击抽取牌张</span>
                             </div>
                         </div>
                         <div class="step-item">
                             <span class="step-num">4</span>
                             <div class="step-content">
-                                <strong>获得解读</strong>
-                                <span>查看详细的牌阵解读和建议</span>
+                                <strong data-i18n="step4Title">获得解读</strong>
+                                <span data-i18n="step4Desc">查看详细的牌阵解读和建议</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="about-card">
-                    <h3>💡 温馨提示</h3>
+                    <h3 data-i18n="disclaimerTitle">💡 温馨提示</h3>
                     <div class="disclaimer">
-                        禅卡不是预测未来的工具，而是帮助你觉知当下、映照内心的镜子。每一张牌都是当下状态的呈现，真正的智慧与力量，一直在你心中 ✨
+                        <span data-i18n="disclaimerText">禅卡不是预测未来的工具，而是帮助你觉知当下、映照内心的镜子。每一张牌都是当下状态的呈现，真正的智慧与力量，一直在你心中 ✨</span>
                     </div>
                 </div>
 
     <!-- 开源信息 | Open Source Info -->
     <div style="text-align:center;padding:20px 15px;margin-top:10px;border-top:1px solid rgba(201,168,108,0.2);">
-        <div style="font-size:14px;color:#c9a86c;font-weight:bold;margin-bottom:8px;letter-spacing:1px;">⚡ 开源版 | Open Source Edition</div>
+        <div style="font-size:14px;color:#c9a86c;font-weight:bold;margin-bottom:8px;letter-spacing:1px;" data-i18n="openSourceTitle">⚡ 开源版 | Open Source Edition</div>
         <div style="font-size:12px;color:#999;line-height:1.8;margin-bottom:8px;">
             本产品以 BSL 1.1 许可证开源发布，非商业用途免费使用<br>
             Released under BSL 1.1 License, free for non-commercial use
@@ -2170,15 +2170,15 @@
         <div class="bottom-nav">
             <div class="nav-item active" data-tab="home">
                 <span class="icon">🪷</span>
-                <span class="text">禅卡</span>
+                <span class="text" data-i18n="navHome">禅卡</span>
             </div>
             <div class="nav-item" data-tab="history">
                 <span class="icon">📜</span>
-                <span class="text">记录</span>
+                <span class="text" data-i18n="navHistory">记录</span>
             </div>
             <div class="nav-item" data-tab="about">
                 <span class="icon">🧘</span>
-                <span class="text">关于</span>
+                <span class="text" data-i18n="navAbout">关于</span>
             </div>
         </div>
     </div>
@@ -2192,14 +2192,14 @@
         </div>
         
         <div class="question-card">
-            <h4>💭 你想问什么呢？</h4>
-            <textarea class="question-input" id="questionInput" placeholder="在心里默默想着你的问题，也可以在这里写下~"></textarea>
+            <h4 id="questionTip" data-i18n="questionTip">💭 你想问什么呢？</h4>
+            <textarea class="question-input" id="questionInput" data-i18n-placeholder="questionPlaceholder" placeholder="在心里默默想着你的问题，也可以在这里写下~"></textarea>
         </div>
         
         <div class="progress-section">
             <div class="progress-info">
-                <span class="progress-label">已抽取</span>
-                <span class="progress-count"><span id="drawnCount">0</span> / <span id="totalCount">3</span> 张</span>
+                <span class="progress-label" id="progressLabel" data-i18n="drawn">已抽取</span>
+                <span class="progress-count"><span id="drawnCount">0</span> / <span id="totalCount">3</span><span id="cardsText" data-i18n="cardsUnit"> 张</span></span>
             </div>
             <div class="progress-bar">
                 <div class="progress-fill" id="drawProgress" style="width: 0%"></div>
@@ -2220,10 +2220,7 @@
             <button class="start-btn" id="startDrawBtn" onclick="startReading()">
                 🌟 开始洗牌
             </button>
-            <div class="hint-text" id="drawHint">
-                点击开始洗牌<br>
-                然后从展开的牌中点击选择~
-            </div>
+            <div class="hint-text" id="drawHint" data-i18n="drawHint">点击开始洗牌<br>然后从展开的牌中点击选择~</div>
         </div>
     </div>
     
@@ -2231,7 +2228,7 @@
     <div class="app-container" id="view-result">
         <div class="divination-header">
             <button class="back-btn" onclick="goBackToHome()">‹</button>
-            <div class="header-title">✨ 解读结果</div>
+            <div class="header-title" data-i18n="resultTitle">✨ 解读结果</div>
             <button class="back-btn" style="background: transparent; border: none; font-size: 18px;" onclick="shareResult()">📤</button>
         </div>
         
@@ -2240,7 +2237,7 @@
         </div>
         
         <div class="result-question-card" id="resultQuestion">
-            <strong>你的问题：</strong> 我的感情会怎么发展呢？
+            <strong data-i18n="yourQuestion">你的问题：</strong> 我的感情会怎么发展呢？
         </div>
         
         <div class="spread-display" id="spreadDisplay"></div>
@@ -2248,14 +2245,14 @@
         <div class="interpretation-section" id="interpretationSection"></div>
         
         <div class="summary-card">
-            <div class="summary-title">💫 综合建议</div>
+            <div class="summary-title" id="summaryTitle" data-i18n="summaryTitle">💫 综合建议</div>
             <div class="summary-text" id="summaryText"></div>
         </div>
         
         <div class="action-btns">
-            <button class="action-btn secondary" onclick="redoReading()">🔄 再抽一次</button>
-            <button class="action-btn share" onclick="shareResultImage()" style="display:none;">📤 分享图片</button>
-            <button class="action-btn primary" onclick="finishReading()">✅ 完成</button>
+            <button class="action-btn secondary" id="redoBtn" onclick="redoReading()">🔄 再抽一次</button>
+            <button class="action-btn share" id="shareBtn" onclick="shareResultImage()" style="display:none;">📤 分享图片</button>
+            <button class="action-btn primary" id="finishBtn" onclick="finishReading()">✅ 完成</button>
         </div>
     </div>
     
@@ -2263,7 +2260,7 @@
     <div class="modal-overlay" id="cardDetailModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>牌面详情</h3>
+                <h3 id="cardDetailTitle" data-i18n="cardDetail">牌面详情</h3>
                 <button class="modal-close" onclick="closeCardDetail()">×</button>
             </div>
             <div id="cardDetailContent"></div>
@@ -3798,7 +3795,8 @@ window.drawCards = drawCards;
     <script>
         // ========== 全局状态 ==========
         let currentSpreadType = null;
-        let currentLang = 'zh';
+        let currentLang = localStorage.getItem('zettian-lang') || 'zh';
+        let isEn = currentLang === 'en';
         let drawnCards = [];
         let currentDrawIndex = 0;
         let allCards = [];
@@ -3806,46 +3804,518 @@ window.drawCards = drawCards;
         let isReading = false;
         let phase = 'idle'; // idle, shuffling, spreading, selecting, done
         
-        // ========== 翻译文本对象 ==========
-        const TEXTS = {
-            welcomeTitle: { zh: '静心 · 觉察 · 当下 ✨', en: 'Still · Aware · Present ✨' },
-            welcomeText: { zh: '放下杂念，感受此刻<br>让禅卡为你映照内心的智慧~', en: 'Release distractions, feel the moment<br>Let Zen cards reflect your inner wisdom~' },
-            selectSpread: { zh: '🔮 选择你的牌阵', en: '🔮 Choose Your Spread' },
-            spreadThree: { zh: '探索过去、现在与未来的时间线，清晰看见事情的发展脉络', en: 'Explore the timeline of past, present, and future' },
-            spreadChoice: { zh: '纠结选A还是选B？看看两条路各自的发展趋势吧', en: 'Can\'t decide? See both paths development' },
-            spreadLove: { zh: '探索恋爱关系中的双方状态与未来发展', en: 'Explore romantic relationship dynamics' },
-            spreadMeditation: { zh: '抽一张牌，聆听今日潜意识给你的建议或任务', en: 'Draw one card for today\'s guidance' },
-            spreadUniversal: { zh: '适用于对任何人事物的看法，从头脑到潜意识的全面洞察', en: 'Comprehensive insight for any situation' },
-            spreadDiamond: { zh: '深入解析重要事件，从内外影响到最终答案', en: 'Deep analysis from inner/outer to final answer' },
-            startDraw: { zh: '🌟 开始洗牌', en: '🌟 Start Shuffling' },
-            drawHint: { zh: '点击开始洗牌<br>然后从展开的牌中点击选择~', en: 'Click to shuffle<br>Then select from spread~' },
-            selectCard: { zh: '✨ 请点击选择第', en: '✨ Please select card ' },
-            interpretation: { zh: '📖 牌面解读', en: '📖 Card Interpretation' },
-            summaryTitle: { zh: '💫 综合建议', en: '💫 Comprehensive Advice' },
-            redoReading: { zh: '🔄 再抽一次', en: '🔄 Draw Again' },
-            shareImage: { zh: '📤 分享图片', en: '📤 Share Image' },
-            finishReading: { zh: '✅ 完成', en: '✅ Done' },
-            yourQuestion: { zh: '你的问题：', en: 'Your Question: ' },
-            cardDetail: { zh: '牌面详情', en: 'Card Details' },
-            drawAgain: { zh: '默默许下心愿~', en: '(Make a silent wish~)' },
-            historyTitle: { zh: '📜 我的占卜记录', en: '📜 My Records' },
-            noRecords: { zh: '还没有占卜记录哦', en: 'No records yet' },
-            noRecordsHint: { zh: '快去开始你的第一次占卜吧~', en: 'Start your first divination~' },
-            navHome: { zh: '禅卡', en: 'Zen Cards' },
-            navHistory: { zh: '记录', en: 'Records' },
-            navAbout: { zh: '关于', en: 'About' },
-            questionPlaceholder: { zh: '在心里默默想着你的问题，也可以在这里写下~', en: 'Think about your question~' },
-            questionTip: { zh: '💭 你想问什么呢？', en: '💭 What would you like to ask?' },
-            shareTitle: { zh: '抽取牌卡', en: 'Drawn Cards' },
-            downloaded: { zh: '图片已生成，正在下载~', en: 'Image generated~' },
-            drawn: { zh: '已抽取', en: 'Drawn' },
-            cards: { zh: '张', en: ' cards' }
+        // ========== i18n 国际化字典 ==========
+        const i18n = {
+            zh: {
+                // 标题与副标题
+                subtitle: '觉知当下 · 静心感悟',
+                welcomeTitle: '静心 · 觉察 · 当下 ✨',
+                welcomeText: '放下杂念，感受此刻<br>让禅卡为你映照内心的智慧~',
+                selectSpread: '🔮 选择你的牌阵',
+                // 导航
+                navHome: '禅卡',
+                navHistory: '记录',
+                navAbout: '关于',
+                // 牌阵名称
+                spreadThreeName: '时间之流',
+                spreadChoiceName: '二选一',
+                spreadLoveName: '恋爱关系',
+                spreadMeditationName: '今日静心',
+                spreadUniversalName: '万能牌阵',
+                spreadDiamondName: '钻石牌阵',
+                // 牌阵描述
+                spreadThreeDesc: '探索过去、现在与未来的时间线，清晰看见事情的发展脉络',
+                spreadChoiceDesc: '纠结选A还是选B？看看两条路各自的发展趋势吧',
+                spreadLoveDesc: '探索恋爱关系中的双方状态与未来发展',
+                spreadMeditationDesc: '抽一张牌，聆听今日潜意识给你的建议或任务',
+                spreadUniversalDesc: '适用于对任何人事物的看法，从头脑到潜意识的全面洞察',
+                spreadDiamondDesc: '深入解析重要事件，从内外影响到最终答案',
+                // 牌阵标签
+                tagPast: '过去',
+                tagPresent: '现在',
+                tagFuture: '未来',
+                tagCurrent: '现状',
+                tagResultA: 'A结果',
+                tagResultB: 'B结果',
+                tagOther: '对方',
+                tagSelf: '自己',
+                tagCards6: '6张牌',
+                tagSingle: '单牌',
+                tagGuidance: '指引',
+                tagAwareness: '觉察',
+                tagReason: '理性',
+                tagSubconscious: '潜意识',
+                tagCards4: '4张牌',
+                tagInfluence: '影响',
+                tagCards5: '5张牌',
+                // 抽牌流程
+                startDraw: '<span data-i18n="startDraw">🌟 开始洗牌</span>',
+                drawHint: '点击开始洗牌<br>然后从展开的牌中点击选择~',
+                drawHintDeck: '点击牌堆上的「开始」<br>开始洗牌抽牌~',
+                shuffling: '🔄 洗牌中...',
+                startBtn: '开始',
+                selectCardHint: '✨ 请点击选择第',
+                selectCardSuffix: '张牌',
+                // 进度
+                drawn: '已抽取',
+                cardsUnit: '张',
+                // 问题
+                questionTip: '💭 你想问什么呢？',
+                questionPlaceholder: '在心里默默想着你的问题，也可以在这里写下~',
+                silentWish: '（默默许下心愿~）',
+                // 结果页
+                resultTitle: '✨ 解读结果',
+                yourQuestion: '你的问题：',
+                summaryTitle: '💫 综合建议',
+                redoReading: '🔄 再抽一次',
+                shareImage: '📤 分享图片',
+                finishReading: '✅ 完成',
+                // 牌面详情
+                cardDetail: '牌面详情',
+                keywords: '✨ 关键词',
+                cardInterpretation: '📖 牌面解读',
+                cardImagery: '🖼️ 牌面图像',
+                // 牌面解读标题
+                interpretationTitle: '📖 牌面解读',
+                // 时间之流解读
+                threePastTitle: 'A. 问题的过去',
+                threePresentTitle: 'B. 问题的现在',
+                threeFutureTitle: 'C. 问题的未来',
+                // 二选一解读
+                choiceCurrentTitle: 'A. 问题选择的现状',
+                choiceATitle: 'B. 选择A：做',
+                choiceBTitle: 'C. 选择B：不做',
+                choiceAResult: '选择A结果',
+                choiceAFuture: '选择A未来发展',
+                choiceBResult: '选择B结果',
+                choiceBFuture: '选择B未来发展',
+                // 恋爱解读
+                loveTheirTitle: 'A. 对方状态',
+                loveMyTitle: 'B. 我的状态',
+                lovePastTitle: 'C. 这段关系的过去',
+                lovePresentTitle: 'D. 这段关系的现在',
+                loveFutureTitle: 'E. 这段关系的未来',
+                loveTheirLabel: '对方状态',
+                loveMyLabel: '自己状态',
+                zenCardLabel: '禅卡',
+                // 今日静心
+                meditationSubtitle: '今日潜意识给你的建议或任务',
+                // 万能牌阵
+                universalPartATitle: 'A. 表意识与潜意识的想法',
+                universalPartBTitle: 'B. 困难与建议',
+                universalMind: '头脑的看法',
+                universalSubconscious: '潜意识的想法',
+                universalObstacle: '遇到的困难和做不到的事',
+                universalAdvice: '潜意识给你的建议或答案',
+                // 钻石牌阵
+                diamondCurrentTitle: 'A. 问题的现状',
+                diamondInfluenceTitle: 'B. 内在影响与外在影响',
+                diamondSolutionTitle: 'C. 解决的关键与结果',
+                diamondInnerInfluence: '你没看到的内在影响',
+                diamondOuterInfluence: '已知的外在影响',
+                diamondSolution: '解决这个问题需要的',
+                diamondAnswer: '这个问题的答案与了解',
+                // 综合建议
+                threeSummary1: '过去的',
+                threeSummary2: '显示你有一定的积累和经验；',
+                threeSummary3: '现在的',
+                threeSummary4: '说明你正处于需要觉察的状态；',
+                threeSummary5: '未来的',
+                threeSummary6: '显示事情有望朝着好的方向发展呢！',
+                threeSummary7: '整体能量正向~保持觉知，信任生命的流动！',
+                choiceSummary1: '针对你的现状，目前情况需要你静心感受；',
+                choiceSummaryA1: '选择A方面，',
+                choiceSummaryA2: '显示积极能量，',
+                choiceSummaryA3: '趋势向好。',
+                choiceSummaryB1: '选择B方面，',
+                choiceSummaryEnd: '两个选项各有启示~跟随内心的直觉做选择吧！',
+                loveSummary1: '对方未来的态度',
+                loveSummary2: '显示出积极信号~',
+                loveSummary3: '而你对这段关系的期待',
+                loveSummary4: '是积极正向的呢！',
+                loveSummary5: '整体来看，这段关系的能量和谐，双方都在正向发展~',
+                meditationSummary1: '今日的',
+                meditationSummary2: '提醒你：',
+                meditationSummary3: '~静心感受这张牌的能量，让它指引你今天的行动吧！',
+                universalSummary1: '头脑层面显示',
+                universalSummary2: '，而潜意识层面是',
+                universalSummary3: '。',
+                universalSummary4: '这说明你的理性与内在可能有些不同调呢~',
+                universalSummary5: '目前的困难',
+                universalSummary6: '需要面对，',
+                universalSummary7: '潜意识的建议',
+                universalSummary8: '会指引你找到答案！',
+                universalSummary9: '信任你的直觉，答案已经在内心深处~',
+                diamondSummary1: '现状',
+                diamondSummary2: '受到内外因素的共同影响。',
+                diamondSummary3: '内在层面',
+                diamondSummary4: '在默默运作，',
+                diamondSummary5: '外在环境',
+                diamondSummary6: '也在起作用。',
+                diamondSummary7: '要解决问题，',
+                diamondSummary8: '是关键所在。',
+                diamondSummary9: '最终的答案',
+                diamondSummary10: '正在向你揭示~静心觉察，答案已经呈现！',
+                // 元素名称
+                elementFire: '🔥 火焰牌 · 行动与能量',
+                elementWater: '💧 水牌 · 情感与流动',
+                elementClouds: '☁️ 云牌 · 心智与思维',
+                elementRainbows: '🌈 彩虹牌 · 物质与现实',
+                // 历史记录
+                historyTitle: '📜 我的占卜记录',
+                noRecords: '还没有占卜记录哦',
+                noRecordsHint: '快去开始你的第一次占卜吧~',
+                noRecordsAlt: '还没有占卜记录哦~',
+                noRecordsHintAlt: '快去开始你的第一次占卜吧',
+                // 关于页
+                aboutTitle: '🧘 关于择天禅卡',
+                aboutDesc1: '择天禅卡基于奥修禅卡系统，共79张牌卡，不同于传统塔罗的预测功能，禅卡专注于当下的觉知与内心的映照 🪷',
+                aboutDesc2: '禅卡没有正逆位之分，每一张牌都是当下状态的呈现，帮助你看见内在的智慧与可能性~',
+                statTotal: '禅卡总数',
+                statMajor: '大阿卡纳',
+                statMinor: '小阿卡纳',
+                statMaster: '师父牌',
+                usageTitle: '📖 使用方法',
+                step1Title: '选择牌阵',
+                step1Desc: '根据你的问题类型选择合适的牌阵',
+                step2Title: '输入问题',
+                step2Desc: '在心中默念或在输入框写下你的疑问',
+                step3Title: '抽取禅卡',
+                step3Desc: '按照提示依次点击抽取牌张',
+                step4Title: '获得解读',
+                step4Desc: '查看详细的牌阵解读和建议',
+                disclaimerTitle: '💡 温馨提示',
+                disclaimerText: '禅卡不是预测未来的工具，而是帮助你觉知当下、映照内心的镜子。每一张牌都是当下状态的呈现，真正的智慧与力量，一直在你心中 ✨',
+                // 完整版提示
+                unlockFull: '获取完整版解锁更多精彩',
+                unlockFullList: '• 全部9种牌阵类型<br>• 无限占卜次数<br>• 完整历史记录',
+                unlockFull1: '• 全部9种牌阵类型',
+                unlockFull2: '• 无限占卜次数',
+                unlockFull3: '• 完整历史记录',
+                getFullVersion: '✨ 官网获取完整版',
+                // 开源版
+                openSourceTitle: '开源版 | Open Source Edition',
+                openSourceDesc: '当前为开源版，每日可体验1次占卜',
+                openSourceDesc2: '获取完整版解锁全部功能：全部9种牌阵、无限占卜、完整历史记录',
+                // 分享
+                shareTitle: '抽取牌卡',
+                shareInterpTitle: '📖 牌面解读',
+                shareSummaryLabel: '💫 综合建议',
+                shareFooter: '择天禅卡 · 静心觉察当下',
+                shareTitleText: '择天禅卡解读',
+                shareSpreadLabel: '牌阵：',
+                shareDisclaimer: '💫 仅供参考娱乐',
+                copiedToClipboard: '已复制到剪贴板~',
+                imageGenerating: '图片生成库加载中，请稍后重试',
+                imageGenerated: '图片已生成，正在下载~',
+                imageGenFailed: '生成图片失败，请重试',
+                todayGuidance: '今日指引',
+                // 免费版限制
+                dailyLimitMsg: '今日占卜次数已用完，明天再来~\n获取完整版请访问官网: zetian.i-ching-ai.com | 微信小程序搜「易学轻松玩」',
+                dailyRemaining: '今日剩余：',
+                dailyUnit: '次',
+                memberOnly: '此牌阵功能在完整版中可用~\n获取完整版请访问官网: zetian.i-ching-ai.com | 微信小程序搜「易学轻松玩」',
+                // 版权保护
+                copyrightAlert: '择天禅卡 © 择天老师\n\n版权保护中，禁止复制',
+            },
+            en: {
+                // Title & subtitle
+                subtitle: 'Aware · Still · Present',
+                welcomeTitle: 'Still · Aware · Present ✨',
+                welcomeText: 'Release distractions, feel the moment<br>Let Zen cards reflect your inner wisdom~',
+                selectSpread: '🔮 Choose Your Spread',
+                // Navigation
+                navHome: 'Zen Cards',
+                navHistory: 'Records',
+                navAbout: 'About',
+                // Spread names
+                spreadThreeName: 'Three Card Spread',
+                spreadChoiceName: 'Choice Spread',
+                spreadLoveName: 'Love Relationship',
+                spreadMeditationName: 'Daily Meditation',
+                spreadUniversalName: 'Universal Spread',
+                spreadDiamondName: 'Diamond Spread',
+                // Spread descriptions
+                spreadThreeDesc: 'Explore the timeline of past, present, and future',
+                spreadChoiceDesc: "Can't decide? See both paths unfold",
+                spreadLoveDesc: 'Explore romantic relationship dynamics',
+                spreadMeditationDesc: "Draw one card for today's guidance",
+                spreadUniversalDesc: 'Comprehensive insight from mind to subconscious',
+                spreadDiamondDesc: 'Deep analysis from inner/outer to final answer',
+                // Spread tags
+                tagPast: 'Past',
+                tagPresent: 'Present',
+                tagFuture: 'Future',
+                tagCurrent: 'Current',
+                tagResultA: 'Option A',
+                tagResultB: 'Option B',
+                tagOther: 'Them',
+                tagSelf: 'You',
+                tagCards6: '6 Cards',
+                tagSingle: 'One Card',
+                tagGuidance: 'Guidance',
+                tagAwareness: 'Awareness',
+                tagReason: 'Mind',
+                tagSubconscious: 'Subconscious',
+                tagCards4: '4 Cards',
+                tagInfluence: 'Influence',
+                tagCards5: '5 Cards',
+                // Drawing flow
+                startDraw: '🌟 Start Shuffling',
+                drawHint: 'Click to shuffle<br>Then select from spread~',
+                drawHintDeck: 'Click "Start" on the deck<br>to shuffle and draw~',
+                shuffling: '🔄 Shuffling...',
+                startBtn: 'Start',
+                selectCardHint: '✨ Please select card ',
+                selectCardSuffix: '',
+                // Progress
+                drawn: 'Drawn',
+                cardsUnit: ' cards',
+                // Question
+                questionTip: '💭 What would you like to ask?',
+                questionPlaceholder: 'Think about your question, or write it here~',
+                silentWish: '(Make a silent wish~)',
+                // Result page
+                resultTitle: '✨ Your Reading',
+                yourQuestion: 'Your Question: ',
+                summaryTitle: '💫 Comprehensive Advice',
+                redoReading: '🔄 Draw Again',
+                shareImage: '📤 Share Image',
+                finishReading: '✅ Done',
+                // Card detail
+                cardDetail: 'Card Details',
+                keywords: '✨ Keywords',
+                cardInterpretation: '📖 Interpretation',
+                cardImagery: '🖼️ Imagery',
+                // Interpretation title
+                interpretationTitle: '📖 Card Interpretation',
+                // Three card spread
+                threePastTitle: 'A. The Past',
+                threePresentTitle: 'B. The Present',
+                threeFutureTitle: 'C. The Future',
+                // Choice spread
+                choiceCurrentTitle: 'A. Current Situation',
+                choiceATitle: 'B. Choosing A',
+                choiceBTitle: 'C. Choosing B',
+                choiceAResult: 'Result of A',
+                choiceAFuture: 'A Path Forward',
+                choiceBResult: 'Result of B',
+                choiceBFuture: 'B Path Forward',
+                // Love spread
+                loveTheirTitle: 'A. Their State',
+                loveMyTitle: 'B. Your State',
+                lovePastTitle: 'C. The Relationship Past',
+                lovePresentTitle: 'D. The Relationship Present',
+                loveFutureTitle: 'E. The Relationship Future',
+                loveTheirLabel: 'Their State',
+                loveMyLabel: 'Your State',
+                zenCardLabel: 'Zen Card',
+                // Meditation
+                meditationSubtitle: "Today's guidance from your subconscious",
+                // Universal spread
+                universalPartATitle: 'A. Mind & Subconscious',
+                universalPartBTitle: 'B. Obstacles & Advice',
+                universalMind: 'Mind\'s View',
+                universalSubconscious: 'Subconscious Thought',
+                universalObstacle: 'Obstacles You Face',
+                universalAdvice: 'Advice from Within',
+                // Diamond spread
+                diamondCurrentTitle: 'A. Current Situation',
+                diamondInfluenceTitle: 'B. Inner & Outer Influence',
+                diamondSolutionTitle: 'C. Key & Outcome',
+                diamondInnerInfluence: 'Inner Influence Unseen',
+                diamondOuterInfluence: 'Outer Influence Known',
+                diamondSolution: 'What You Need to Resolve',
+                diamondAnswer: 'The Answer & Understanding',
+                // Summaries
+                threeSummary1: 'The past card ',
+                threeSummary2: ' shows your accumulation and experience; ',
+                threeSummary3: 'the present card ',
+                threeSummary4: ' suggests you need awareness now; ',
+                threeSummary5: 'the future card ',
+                threeSummary6: ' indicates things are moving in a positive direction! ',
+                threeSummary7: 'Overall energy is positive~ Stay aware, trust the flow of life!',
+                choiceSummary1: 'Regarding your current situation, take a moment to feel; ',
+                choiceSummaryA1: 'For option A, ',
+                choiceSummaryA2: ' shows positive energy, ',
+                choiceSummaryA3: ' trend is favorable. ',
+                choiceSummaryB1: 'For option B, ',
+                choiceSummaryEnd: 'Both options offer insights~ Follow your inner intuition!',
+                loveSummary1: 'Their future attitude ',
+                loveSummary2: ' shows positive signals~ ',
+                loveSummary3: 'and your expectation for this relationship ',
+                loveSummary4: ' is positive too! ',
+                loveSummary5: 'Overall, the relationship energy is harmonious with both growing positively~',
+                meditationSummary1: "Today's card ",
+                meditationSummary2: ' reminds you: ',
+                meditationSummary3: "~ Feel the energy of this card, let it guide your actions today!",
+                universalSummary1: 'Your mind shows ',
+                universalSummary2: ', while your subconscious is ',
+                universalSummary3: '. ',
+                universalSummary4: 'This suggests your rational and inner self may be out of sync~ ',
+                universalSummary5: 'The current obstacle ',
+                universalSummary6: ' needs to be faced, ',
+                universalSummary7: "and your subconscious advice ",
+                universalSummary8: ' will guide you to the answer! ',
+                universalSummary9: 'Trust your intuition, the answer is already within~',
+                diamondSummary1: 'Current situation ',
+                diamondSummary2: ' is influenced by both inner and outer factors. ',
+                diamondSummary3: 'Inner aspect ',
+                diamondSummary4: ' is working behind the scenes, ',
+                diamondSummary5: 'outer environment ',
+                diamondSummary6: ' also plays a role. ',
+                diamondSummary7: 'To resolve this, ',
+                diamondSummary8: ' is the key. ',
+                diamondSummary9: 'The final answer ',
+                diamondSummary10: ' is being revealed~ Be still and aware, the answer is already present!',
+                // Element names
+                elementFire: '🔥 Fire · Action & Energy',
+                elementWater: '💧 Water · Emotion & Flow',
+                elementClouds: '☁️ Clouds · Mind & Thought',
+                elementRainbows: '🌈 Rainbows · Matter & Reality',
+                // History
+                historyTitle: '📜 My Records',
+                noRecords: 'No records yet',
+                noRecordsHint: 'Start your first reading~',
+                noRecordsAlt: 'No records yet~',
+                noRecordsHintAlt: 'Start your first reading',
+                // About page
+                aboutTitle: '🧘 About Zen Cards',
+                aboutDesc1: 'Based on the Osho Zen Tarot system with 79 cards. Unlike traditional tarot prediction, Zen cards focus on present awareness and inner reflection 🪷',
+                aboutDesc2: 'There are no reversed cards in Zen readings. Each card reflects your present state, helping you see your inner wisdom and possibilities~',
+                statTotal: 'Total Cards',
+                statMajor: 'Major Arcana',
+                statMinor: 'Minor Arcana',
+                statMaster: 'Master Card',
+                usageTitle: '📖 How to Use',
+                step1Title: 'Choose Spread',
+                step1Desc: 'Select a spread that fits your question type',
+                step2Title: 'Ask Your Question',
+                step2Desc: 'Think of your question silently or write it down',
+                step3Title: 'Draw Cards',
+                step3Desc: 'Click to draw cards as guided',
+                step4Title: 'Read Interpretation',
+                step4Desc: 'View detailed card interpretations and advice',
+                disclaimerTitle: '💡 Gentle Reminder',
+                disclaimerText: 'Zen cards are not fortune-telling tools, but mirrors that help you be aware of the present and reflect on your inner self. Each card reflects your current state. True wisdom and power have always been within you ✨',
+                // Full version
+                unlockFull: 'Unlock the full version for more',
+                unlockFullList: '• All 9 spread types<br>• Unlimited readings<br>• Complete history',
+                unlockFull1: '• All 9 spread types',
+                unlockFull2: '• Unlimited readings',
+                unlockFull3: '• Complete history',
+                getFullVersion: '✨ Get Full Version',
+                // Open source
+                openSourceTitle: 'Open Source Edition',
+                openSourceDesc: 'This is the open source edition, 1 reading per day',
+                openSourceDesc2: 'Unlock full version: all 9 spreads, unlimited readings, complete history',
+                // Share
+                shareTitle: 'Drawn Cards',
+                shareInterpTitle: '📖 Interpretation',
+                shareSummaryLabel: '💫 Advice',
+                shareFooter: 'Zen Cards · Still, Aware, Present',
+                shareTitleText: 'Zen Card Reading',
+                shareSpreadLabel: 'Spread: ',
+                shareDisclaimer: '💫 For entertainment only',
+                copiedToClipboard: 'Copied to clipboard~',
+                imageGenerating: 'Image library loading, please try again later',
+                imageGenerated: 'Image generated, downloading~',
+                imageGenFailed: 'Failed to generate image, please retry',
+                todayGuidance: "Today's Guidance",
+                // Free version limits
+                dailyLimitMsg: "Daily reading limit reached, come back tomorrow~\nGet the full version: zetian.i-ching-ai.com",
+                dailyRemaining: 'Remaining today: ',
+                dailyUnit: '',
+                memberOnly: "This spread is available in the full version~\nGet the full version: zetian.i-ching-ai.com",
+                // Copyright
+                copyrightAlert: 'Zen Cards © Master Zeyue\n\nCopyright protected, copying prohibited',
+            }
         };
         
         function t(key) {
-            const text = TEXTS[key];
-            if (!text) return key;
-            return currentLang === 'en' && text.en ? text.en : text.zh;
+            return (i18n[currentLang] && i18n[currentLang][key]) || (i18n.zh && i18n.zh[key]) || key;
+        }
+        
+        // ========== 语言切换系统 ==========
+        function setLanguage(lang) {
+            currentLang = lang;
+            isEn = lang === 'en';
+            localStorage.setItem('zettian-lang', lang);
+            applyLanguage();
+        }
+        
+        function applyLanguage() {
+            isEn = currentLang === 'en';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+            document.title = currentLang === 'zh' ? '择天禅卡 - 开源版 | ZeyueZen Open Source' : 'Zen Cards - Open Source | ZeyueZen';
+            
+            // 更新语言切换按钮状态
+            document.querySelectorAll('.lang-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.lang === currentLang);
+            });
+            
+            // 遍历所有 data-i18n 元素替换文本
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[currentLang] && i18n[currentLang][key]) {
+                    el.innerHTML = i18n[currentLang][key];
+                }
+            });
+            
+            // 遍历所有 data-i18n-placeholder 元素替换 placeholder
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (i18n[currentLang] && i18n[currentLang][key]) {
+                    el.placeholder = i18n[currentLang][key];
+                }
+            });
+            
+            // 更新特殊ID元素（兼容旧的ID更新逻辑）
+            updateSpecialElements();
+            
+            // 更新牌阵位置标签
+            updatePositionLabels();
+            
+            // 更新导航
+            updateNavLabels();
+        }
+        
+        function updateSpecialElements() {
+            const el = id => document.getElementById(id);
+            // 欢迎区
+            if (el('welcomeTitle')) el('welcomeTitle').innerHTML = t('welcomeTitle');
+            if (el('welcomeText')) el('welcomeText').innerHTML = t('welcomeText');
+            // 历史区
+            if (el('historyTitle')) el('historyTitle').textContent = t('historyTitle');
+            if (el('noRecordsText')) el('noRecordsText').textContent = t('noRecords');
+            if (el('noRecordsHint')) el('noRecordsHint').textContent = t('noRecordsHint');
+            // 抽牌区
+            if (el('questionTip')) el('questionTip').textContent = t('questionTip');
+            if (el('questionInput')) el('questionInput').placeholder = t('questionPlaceholder');
+            if (el('progressLabel')) el('progressLabel').textContent = t('drawn');
+            if (el('cardsText')) el('cardsText').textContent = t('cardsUnit');
+            if (el('cardDetailTitle')) el('cardDetailTitle').textContent = t('cardDetail');
+            // 结果区
+            if (el('summaryTitle')) el('summaryTitle').textContent = t('summaryTitle');
+            if (el('redoBtn')) el('redoBtn').textContent = t('redoReading');
+            if (el('shareBtn')) el('shareBtn').textContent = t('shareImage');
+            if (el('finishBtn')) el('finishBtn').textContent = t('finishReading');
+            // 开始按钮
+            if (el('startDrawBtn') && el('startDrawBtn').style.display !== 'none') {
+                el('startDrawBtn').textContent = t('startDraw');
+            }
+            // 牌阵标题
+            if (currentSpreadType && SPREAD_CONFIGS[currentSpreadType]) {
+                if (el('spreadNameHeader')) el('spreadNameHeader').textContent = SPREAD_CONFIGS[currentSpreadType].name[currentLang];
+                if (el('resultSpreadName')) el('resultSpreadName').textContent = SPREAD_CONFIGS[currentSpreadType].name[currentLang];
+            }
+        }
+        
+        function updateNavLabels() {
+            const navItems = document.querySelectorAll('.nav-item');
+            if (navItems[0]) navItems[0].querySelector('.text').textContent = t('navHome');
+            if (navItems[1]) navItems[1].querySelector('.text').textContent = t('navHistory');
+            if (navItems[2]) navItems[2].querySelector('.text').textContent = t('navAbout');
         }
         
         // ========== 牌阵配置 ==========
@@ -3937,7 +4407,7 @@ window.drawCards = drawCards;
             if (VERSION_TYPE === 'free') {
                 const memberSpreads = ['three', 'choice', 'love', 'diamond'];
                 if (memberSpreads.includes(spreadType)) {
-                    alert('此牌阵功能在完整版中可用~\n获取完整版请访问官网: zetian.i-ching-ai.com | 微信小程序搜「易学轻松玩」');
+                    alert(t('memberOnly'));
                     return;
                 }
             }
@@ -4124,7 +4594,7 @@ window.drawCards = drawCards;
             // 在牌堆上添加"開始"触发层
             const startOverlay = document.createElement('div');
             startOverlay.className = 'deck-start-overlay';
-            startOverlay.innerHTML = '开始';
+            startOverlay.innerHTML = t('startBtn');
             startOverlay.onclick = startReading;
             startOverlay.style.cssText = `
                 position: absolute;
@@ -4159,7 +4629,7 @@ window.drawCards = drawCards;
             // 更新按钮 - 隐藏下方按钮
             const btn = document.getElementById('startDrawBtn');
             btn.style.display = 'none';
-            document.getElementById('drawHint').innerHTML = '点击牌堆上的「开始」<br>开始洗牌抽牌~';
+            document.getElementById('drawHint').innerHTML = t('drawHintDeck');
         }
         
         // ========== 洗牌 ==========
@@ -4170,7 +4640,7 @@ window.drawCards = drawCards;
             
             const btn = document.getElementById('startDrawBtn');
             btn.disabled = true;
-            btn.textContent = '🔄 洗牌中...';
+            btn.textContent = t('shuffling');
             
             const deckCards = document.querySelectorAll('.deck-card');
             
@@ -4240,7 +4710,7 @@ window.drawCards = drawCards;
             const btn = document.getElementById('startDrawBtn');
             btn.style.display = 'none';
             
-            showTip('✨ 请点击选择第1张牌');
+            showTip(t('selectCardHint') + '1' + t('selectCardSuffix'));
         }
         
         // ========== 选择牌 ==========
@@ -4273,7 +4743,7 @@ window.drawCards = drawCards;
                     showResult();
                 }, 1500);
             } else {
-                showTip(`✨ 请点击选择第${currentDrawIndex + 1}张牌`);
+                showTip(t('selectCardHint') + (currentDrawIndex + 1) + t('selectCardSuffix'));
             }
         }
         
@@ -4316,7 +4786,7 @@ window.drawCards = drawCards;
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                          style="display:block;">
                     <div class="card-fallback" style="display:none;">
-                        <div class="card-name">${drawnCard.name_zh}</div>
+                        <div class="card-name">${isEn ? drawnCard.name_en : drawnCard.name_zh}</div>
                         <div style="font-size:9px;color:#888;">${drawnCard.name_en}</div>
                     </div>
                 `;
@@ -4363,7 +4833,7 @@ window.drawCards = drawCards;
         // ========== 显示结果 ==========
         function showResult() {
             const config = SPREAD_CONFIGS[currentSpreadType];
-            const question = document.getElementById('questionInput').value || (currentLang === 'zh' ? '（默默许下心愿~）' : '(Make a silent wish~)');
+            const question = document.getElementById('questionInput').value || t('silentWish');
             
             saveToHistory({
                 spreadType: currentSpreadType,
@@ -4496,8 +4966,8 @@ window.drawCards = drawCards;
                      onload="this.style.display='block';"
                      style="display:none; width:100%; height:100%; object-fit: cover;">
                 <div class="result-card-fallback" style="display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:4px;">
-                    <div class="name" style="font-size:12px;font-weight:bold;color:#d4a853;">${card.name_zh}</div>
-                    <div class="en-name" style="font-size:9px;color:#888;margin-top:2px;">${card.name_en}</div>
+                    <div class="name" style="font-size:12px;font-weight:bold;color:#d4a853;">${isEn ? card.name_en : card.name_zh}</div>
+                    <div class="en-name" style="font-size:9px;color:#888;margin-top:2px;">${isEn ? card.name_zh : card.name_en}</div>
                 </div>
             `;
             
@@ -4505,7 +4975,7 @@ window.drawCards = drawCards;
                 <div class="result-card-image">
                     ${imgHtml}
                 </div>
-                <div class="result-card-name">${card.name_zh}</div>
+                <div class="result-card-name">${isEn ? card.name_en : card.name_zh}</div>
                 ${showPosition ? `<div class="result-card-position">${positionInfo.name[currentLang]}</div>` : ''}
             `;
             
@@ -4519,7 +4989,7 @@ window.drawCards = drawCards;
             
             const title = document.createElement('div');
             title.className = 'interp-title';
-            title.innerHTML = '📖 牌面解读';
+            title.innerHTML = t('interpretationTitle');
             section.appendChild(title);
             
             // 戀愛關係牌阵使用特殊格式
@@ -4570,7 +5040,7 @@ window.drawCards = drawCards;
                 cardDiv.innerHTML = `
                     <div class="interp-card-header">
                         <span class="interp-card-num">${i + 1}</span>
-                        <span class="interp-card-name">${card.name_zh}</span>
+                        <span class="interp-card-name">${isEn ? card.name_en : card.name_zh}</span>
                         <span class="interp-card-position">${position.name[currentLang]}</span>
                     </div>
                     <div class="interp-keywords">
@@ -4593,7 +5063,7 @@ window.drawCards = drawCards;
                                  onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${card.name_zh}</div>'"
                                  style="width:100%;height:100%;object-fit:cover;">
                         </div>
-                        <div style="font-size:11px;color:#d4a853;margin-top:6px;font-weight:600;">${card.name_zh}</div>
+                        <div style="font-size:11px;color:#d4a853;margin-top:6px;font-weight:600;">${isEn ? card.name_en : card.name_zh}</div>
                     </div>
                 </div>
             `;
@@ -4620,9 +5090,9 @@ window.drawCards = drawCards;
         // 时间之流特殊解读格式（禅卡始终正向解读）
         function generateThreeInterpretation(cards, section) {
             const positions = [
-                { title: 'A. 问题的过去', card: cards[0], color: '#d4a853' },
-                { title: 'B. 问题的现在', card: cards[1], color: '#3d7a8b' },
-                { title: 'C. 问题的未来', card: cards[2], color: '#06B6D4' }
+                { title: t('threePastTitle'), card: cards[0], color: '#d4a853' },
+                { title: t('threePresentTitle'), card: cards[1], color: '#3d7a8b' },
+                { title: t('threeFutureTitle'), card: cards[2], color: '#06B6D4' }
             ];
             
             positions.forEach((pos, i) => {
@@ -4637,7 +5107,7 @@ window.drawCards = drawCards;
                     </div>
                     ${createSmallCard(pos.card)}
                     <div class="interp-desc" style="background:rgba(0,0,0,0.2);padding:12px;border-radius:10px;font-size:13px;line-height:1.7;">
-                        ${pos.card.name_zh}：${interp.description}
+                        ${isEn ? pos.card.name_en : pos.card.name_zh}：${interp.description}
                     </div>
                 `;
                 section.appendChild(cardDiv);
@@ -4652,11 +5122,11 @@ window.drawCards = drawCards;
             const currentInterp = cards[0].upright;
             sectionA.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2));padding:12px;border-radius:12px;margin-bottom:10px;">
-                    <span style="font-size:16px;font-weight:bold;color:#d4a853;">A. 问题选择的现状</span>
+                    <span style="font-size:16px;font-weight:bold;color:#d4a853;">${t('choiceCurrentTitle')}</span>
                 </div>
                 ${createSmallCard(cards[0])}
                 <div class="interp-desc" style="background:rgba(0,0,0,0.2);padding:12px;border-radius:10px;font-size:13px;line-height:1.7;">
-                    ${cards[0].name_zh}：${currentInterp.description}
+                    ${isEn ? cards[0].name_en : cards[0].name_zh}：${currentInterp.description}
                 </div>
             `;
             section.appendChild(sectionA);
@@ -4669,18 +5139,18 @@ window.drawCards = drawCards;
             const aFutureInterp = cards[2].upright;
             sectionB.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2));padding:12px;border-radius:12px;margin-bottom:10px;">
-                    <span style="font-size:16px;font-weight:bold;color:#3d7a8b;">B. 选择A：做</span>
+                    <span style="font-size:16px;font-weight:bold;color:#3d7a8b;">${t('choiceATitle')}</span>
                 </div>
                 ${createTwoSmallCards(cards[1], cards[2])}
                 <table style="width:100%;border-collapse:collapse;margin-top:10px;">
                     <tr>
                         <td style="width:50%;padding:10px;background:rgba(168,85,247,0.1);border-radius:8px 0 0 8px;vertical-align:top;">
-                            <div style="font-weight:bold;color:#d4a853;margin-bottom:8px;font-size:13px;">选择A结果</div>
-                            <div style="font-size:12px;line-height:1.6;color:#D1D5DB;">${cards[1].name_zh}：${aResultInterp.description}</div>
+                            <div style="font-weight:bold;color:#d4a853;margin-bottom:8px;font-size:13px;">${t('choiceAResult')}</div>
+                            <div style="font-size:12px;line-height:1.6;color:#D1D5DB;">${isEn ? cards[1].name_en : cards[1].name_zh}：${aResultInterp.description}</div>
                         </td>
                         <td style="width:50%;padding:10px;background:rgba(236,72,153,0.1);border-radius:0 8px 8px 0;vertical-align:top;">
-                            <div style="font-weight:bold;color:#3d7a8b;margin-bottom:8px;font-size:13px;">选择A未来发展</div>
-                            <div style="font-size:12px;line-height:1.6;color:#D1D5DB;">${cards[2].name_zh}：${aFutureInterp.description}</div>
+                            <div style="font-weight:bold;color:#3d7a8b;margin-bottom:8px;font-size:13px;">${t('choiceAFuture')}</div>
+                            <div style="font-size:12px;line-height:1.6;color:#D1D5DB;">${isEn ? cards[2].name_en : cards[2].name_zh}：${aFutureInterp.description}</div>
                         </td>
                     </tr>
                 </table>
@@ -4695,18 +5165,18 @@ window.drawCards = drawCards;
             const bFutureInterp = cards[4].upright;
             sectionC.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2));padding:12px;border-radius:12px;margin-bottom:10px;">
-                    <span style="font-size:16px;font-weight:bold;color:#06B6D4;">C. 选择B：不做</span>
+                    <span style="font-size:16px;font-weight:bold;color:#06B6D4;">${t('choiceBTitle')}</span>
                 </div>
                 ${createTwoSmallCards(cards[3], cards[4])}
                 <table style="width:100%;border-collapse:collapse;margin-top:10px;">
                     <tr>
                         <td style="width:50%;padding:10px;background:rgba(168,85,247,0.1);border-radius:8px 0 0 8px;vertical-align:top;">
-                            <div style="font-weight:bold;color:#d4a853;margin-bottom:8px;font-size:13px;">选择B结果</div>
-                            <div style="font-size:12px;line-height:1.6;color:#D1D5DB;">${cards[3].name_zh}：${bResultInterp.description}</div>
+                            <div style="font-weight:bold;color:#d4a853;margin-bottom:8px;font-size:13px;">${t('choiceBResult')}</div>
+                            <div style="font-size:12px;line-height:1.6;color:#D1D5DB;">${isEn ? cards[3].name_en : cards[3].name_zh}：${bResultInterp.description}</div>
                         </td>
                         <td style="width:50%;padding:10px;background:rgba(6,182,212,0.1);border-radius:0 8px 8px 0;vertical-align:top;">
-                            <div style="font-weight:bold;color:#06B6D4;margin-bottom:8px;font-size:13px;">选择B未来发展</div>
-                            <div style="font-size:12px;line-height:1.6;color:#D1D5DB;">${cards[4].name_zh}：${bFutureInterp.description}</div>
+                            <div style="font-weight:bold;color:#06B6D4;margin-bottom:8px;font-size:13px;">${t('choiceBFuture')}</div>
+                            <div style="font-size:12px;line-height:1.6;color:#D1D5DB;">${isEn ? cards[4].name_en : cards[4].name_zh}：${bFutureInterp.description}</div>
                         </td>
                     </tr>
                 </table>
@@ -4722,11 +5192,11 @@ window.drawCards = drawCards;
             const theirCards = [cards[0], cards[1], cards[2]];
             const theirInterps = theirCards.map(c => {
                 const interp = c.upright;
-                return `${c.name_zh}：${interp.description}`;
+                return `${isEn ? c.name_en : c.name_zh}：${interp.description}`;
             });
             sectionA.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2));padding:12px;border-radius:12px;margin-bottom:10px;">
-                    <span style="font-size:16px;font-weight:bold;color:#d4a853;">A. 对方状态</span>
+                    <span style="font-size:16px;font-weight:bold;color:#d4a853;">${t('loveTheirTitle')}</span>
                 </div>
                 <div style="display:flex;justify-content:center;gap:12px;margin:12px 0;flex-wrap:wrap;">
                     ${theirCards.map(card => `
@@ -4736,8 +5206,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:9px;text-align:center;padding:2px;\\'>${card.name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:10px;color:#d4a853;margin-top:4px;">${card.name_zh}</div>
-                            <div style="font-size:9px;color:#d4a853;">禅卡</div>
+                            <div style="font-size:10px;color:#d4a853;margin-top:4px;">${isEn ? card.name_en : card.name_zh}</div>
+                            <div style="font-size:9px;color:#d4a853;">${t('zenCardLabel')}</div>
                         </div>
                     `).join('')}
                 </div>
@@ -4754,11 +5224,11 @@ window.drawCards = drawCards;
             const myCards = [cards[3], cards[4], cards[5]];
             const myInterps = myCards.map(c => {
                 const interp = c.upright;
-                return `${c.name_zh}：${interp.description}`;
+                return `${isEn ? c.name_en : c.name_zh}：${interp.description}`;
             });
             sectionB.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2));padding:12px;border-radius:12px;margin-bottom:10px;">
-                    <span style="font-size:16px;font-weight:bold;color:#3d7a8b;">B. 我的状态</span>
+                    <span style="font-size:16px;font-weight:bold;color:#3d7a8b;">${t('loveMyTitle')}</span>
                 </div>
                 <div style="display:flex;justify-content:center;gap:12px;margin:12px 0;flex-wrap:wrap;">
                     ${myCards.map(card => `
@@ -4768,8 +5238,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:9px;text-align:center;padding:2px;\\'>${card.name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:10px;color:#d4a853;margin-top:4px;">${card.name_zh}</div>
-                            <div style="font-size:9px;color:#d4a853;">禅卡</div>
+                            <div style="font-size:10px;color:#d4a853;margin-top:4px;">${isEn ? card.name_en : card.name_zh}</div>
+                            <div style="font-size:9px;color:#d4a853;">${t('zenCardLabel')}</div>
                         </div>
                     `).join('')}
                 </div>
@@ -4785,12 +5255,12 @@ window.drawCards = drawCards;
             sectionC.style.animationDelay = '0.3s';
             sectionC.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2));padding:12px;border-radius:12px;margin-bottom:10px;">
-                    <span style="font-size:16px;font-weight:bold;color:#06B6D4;">C. 这段关系的过去</span>
+                    <span style="font-size:16px;font-weight:bold;color:#06B6D4;">${t('lovePastTitle')}</span>
                 </div>
                 ${createTwoSmallCards(cards[0], cards[3])}
                 <div class="interp-desc" style="background:rgba(0,0,0,0.2);padding:12px;border-radius:10px;font-size:13px;line-height:1.7;">
-                    ${cards[0].name_zh}：${cards[0].upright.description}<br>
-                    ${cards[3].name_zh}：${cards[3].upright.description}
+                    ${isEn ? cards[0].name_en : cards[0].name_zh}：${cards[0].upright.description}<br>
+                    ${isEn ? cards[3].name_en : cards[3].name_zh}：${cards[3].upright.description}
                 </div>
             `;
             section.appendChild(sectionC);
@@ -4801,12 +5271,12 @@ window.drawCards = drawCards;
             sectionD.style.animationDelay = '0.45s';
             sectionD.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2));padding:12px;border-radius:12px;margin-bottom:10px;">
-                    <span style="font-size:16px;font-weight:bold;color:#FCD34D;">D. 这段关系的现在</span>
+                    <span style="font-size:16px;font-weight:bold;color:#FCD34D;">${t('lovePresentTitle')}</span>
                 </div>
                 ${createTwoSmallCards(cards[1], cards[4])}
                 <div class="interp-desc" style="background:rgba(0,0,0,0.2);padding:12px;border-radius:10px;font-size:13px;line-height:1.7;">
-                    ${cards[1].name_zh}：${cards[1].upright.description}<br>
-                    ${cards[4].name_zh}：${cards[4].upright.description}
+                    ${isEn ? cards[1].name_en : cards[1].name_zh}：${cards[1].upright.description}<br>
+                    ${isEn ? cards[4].name_en : cards[4].name_zh}：${cards[4].upright.description}
                 </div>
             `;
             section.appendChild(sectionD);
@@ -4817,12 +5287,12 @@ window.drawCards = drawCards;
             sectionE.style.animationDelay = '0.6s';
             sectionE.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(168,85,247,0.2), rgba(236,72,153,0.2));padding:12px;border-radius:12px;margin-bottom:10px;">
-                    <span style="font-size:16px;font-weight:bold;color:#10B981;">E. 这段关系的未来</span>
+                    <span style="font-size:16px;font-weight:bold;color:#10B981;">${t('loveFutureTitle')}</span>
                 </div>
                 ${createTwoSmallCards(cards[2], cards[5])}
                 <div class="interp-desc" style="background:rgba(0,0,0,0.2);padding:12px;border-radius:10px;font-size:13px;line-height:1.7;">
-                    ${cards[2].name_zh}：${cards[2].upright.description}<br>
-                    ${cards[5].name_zh}：${cards[5].upright.description}
+                    ${isEn ? cards[2].name_en : cards[2].name_zh}：${cards[2].upright.description}<br>
+                    ${isEn ? cards[5].name_en : cards[5].name_zh}：${cards[5].upright.description}
                 </div>
             `;
             section.appendChild(sectionE);
@@ -4838,9 +5308,9 @@ window.drawCards = drawCards;
             
             cardDiv.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(212,168,83,0.3), rgba(61,122,139,0.3));padding:16px;border-radius:12px;margin-bottom:15px;text-align:center;">
-                    <div style="font-size:14px;color:#9ca3af;margin-bottom:8px;">今日潜意识给你的建议或任务</div>
-                    <div style="font-size:20px;font-weight:bold;color:#d4a853;">${card.name_zh}</div>
-                    <div style="font-size:12px;color:#888;margin-top:4px;">${card.name_en}</div>
+                    <div style="font-size:14px;color:#9ca3af;margin-bottom:8px;">${t('meditationSubtitle')}</div>
+                    <div style="font-size:20px;font-weight:bold;color:#d4a853;">${isEn ? card.name_en : card.name_zh}</div>
+                    <div style="font-size:12px;color:#888;margin-top:4px;">${isEn ? card.name_zh : card.name_en}</div>
                 </div>
                 <div style="display:flex;justify-content:center;margin:20px 0;">
                     <div style="width:120px;height:180px;border-radius:12px;overflow:hidden;border:3px solid var(--accent-gold);box-shadow:0 8px 30px rgba(212,168,83,0.4);">
@@ -4866,7 +5336,7 @@ window.drawCards = drawCards;
             sectionA.className = 'interp-card';
             sectionA.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(212,168,83,0.2), rgba(61,122,139,0.2));padding:12px;border-radius:12px;margin-bottom:15px;">
-                    <span style="font-size:16px;font-weight:bold;color:#d4a853;">A. 表意识与潜意识的想法</span>
+                    <span style="font-size:16px;font-weight:bold;color:#d4a853;">${t('universalPartATitle')}</span>
                 </div>
                 <table style="width:100%;border-collapse:collapse;">
                     <tr>
@@ -4876,8 +5346,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${cards[0].name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:12px;color:#d4a853;font-weight:600;margin-bottom:8px;">${cards[0].name_zh}</div>
-                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">头脑的看法</div>
+                            <div style="font-size:12px;color:#d4a853;font-weight:600;margin-bottom:8px;">${isEn ? cards[0].name_en : cards[0].name_zh}</div>
+                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">${t('universalMind')}</div>
                             <div style="font-size:13px;line-height:1.7;color:#e0e0e0;text-align:left;">${cards[0].upright.description}</div>
                         </td>
                         <td style="width:50%;padding:10px;text-align:center;vertical-align:top;">
@@ -4886,8 +5356,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${cards[1].name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:12px;color:#3d7a8b;font-weight:600;margin-bottom:8px;">${cards[1].name_zh}</div>
-                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">潜意识的想法</div>
+                            <div style="font-size:12px;color:#3d7a8b;font-weight:600;margin-bottom:8px;">${isEn ? cards[1].name_en : cards[1].name_zh}</div>
+                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">${t('universalSubconscious')}</div>
                             <div style="font-size:13px;line-height:1.7;color:#e0e0e0;text-align:left;">${cards[1].upright.description}</div>
                         </td>
                     </tr>
@@ -4901,7 +5371,7 @@ window.drawCards = drawCards;
             sectionB.style.animationDelay = '0.15s';
             sectionB.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(236,72,153,0.2), rgba(16,185,129,0.2));padding:12px;border-radius:12px;margin-bottom:15px;">
-                    <span style="font-size:16px;font-weight:bold;color:#EC4899;">B. 困难与建议</span>
+                    <span style="font-size:16px;font-weight:bold;color:#EC4899;">${t('universalPartBTitle')}</span>
                 </div>
                 <table style="width:100%;border-collapse:collapse;">
                     <tr>
@@ -4911,8 +5381,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${cards[2].name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:12px;color:#EC4899;font-weight:600;margin-bottom:8px;">${cards[2].name_zh}</div>
-                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">遇到的困难和做不到的事</div>
+                            <div style="font-size:12px;color:#EC4899;font-weight:600;margin-bottom:8px;">${isEn ? cards[2].name_en : cards[2].name_zh}</div>
+                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">${t('universalObstacle')}</div>
                             <div style="font-size:13px;line-height:1.7;color:#e0e0e0;text-align:left;">${cards[2].upright.description}</div>
                         </td>
                         <td style="width:50%;padding:10px;text-align:center;vertical-align:top;">
@@ -4921,8 +5391,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${cards[3].name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:12px;color:#10B981;font-weight:600;margin-bottom:8px;">${cards[3].name_zh}</div>
-                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">潜意识给你的建议或答案</div>
+                            <div style="font-size:12px;color:#10B981;font-weight:600;margin-bottom:8px;">${isEn ? cards[3].name_en : cards[3].name_zh}</div>
+                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">${t('universalAdvice')}</div>
                             <div style="font-size:13px;line-height:1.7;color:#e0e0e0;text-align:left;">${cards[3].upright.description}</div>
                         </td>
                     </tr>
@@ -4938,7 +5408,7 @@ window.drawCards = drawCards;
             sectionA.className = 'interp-card';
             sectionA.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(212,168,83,0.2), rgba(212,168,83,0.1));padding:12px;border-radius:12px;margin-bottom:15px;">
-                    <span style="font-size:16px;font-weight:bold;color:#d4a853;">A. 问题的现状</span>
+                    <span style="font-size:16px;font-weight:bold;color:#d4a853;">${t('diamondCurrentTitle')}</span>
                 </div>
                 <div style="display:flex;justify-content:center;margin:15px 0;">
                     <div style="text-align:center;">
@@ -4947,7 +5417,7 @@ window.drawCards = drawCards;
                                  onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${cards[0].name_zh}</div>'"
                                  style="width:100%;height:100%;object-fit:cover;">
                         </div>
-                        <div style="font-size:12px;color:#d4a853;font-weight:600;margin-bottom:8px;">${cards[0].name_zh}</div>
+                        <div style="font-size:12px;color:#d4a853;font-weight:600;margin-bottom:8px;">${isEn ? cards[0].name_en : cards[0].name_zh}</div>
                     </div>
                 </div>
                 <div style="font-size:13px;line-height:1.7;color:#e0e0e0;background:rgba(0,0,0,0.2);padding:12px;border-radius:10px;">
@@ -4962,7 +5432,7 @@ window.drawCards = drawCards;
             sectionB.style.animationDelay = '0.15s';
             sectionB.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(139,92,246,0.2), rgba(61,122,139,0.2));padding:12px;border-radius:12px;margin-bottom:15px;">
-                    <span style="font-size:16px;font-weight:bold;color:#8B5CF6;">B. 内在影响与外在影响</span>
+                    <span style="font-size:16px;font-weight:bold;color:#8B5CF6;">${t('diamondInfluenceTitle')}</span>
                 </div>
                 <table style="width:100%;border-collapse:collapse;">
                     <tr>
@@ -4972,8 +5442,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${cards[1].name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:12px;color:#8B5CF6;font-weight:600;margin-bottom:8px;">${cards[1].name_zh}</div>
-                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">你没看到的内在影响</div>
+                            <div style="font-size:12px;color:#8B5CF6;font-weight:600;margin-bottom:8px;">${isEn ? cards[1].name_en : cards[1].name_zh}</div>
+                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">${t('diamondInnerInfluence')}</div>
                             <div style="font-size:13px;line-height:1.7;color:#e0e0e0;text-align:left;">${cards[1].upright.description}</div>
                         </td>
                         <td style="width:50%;padding:10px;text-align:center;vertical-align:top;">
@@ -4982,8 +5452,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${cards[2].name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:12px;color:#3d7a8b;font-weight:600;margin-bottom:8px;">${cards[2].name_zh}</div>
-                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">已知的外在影响</div>
+                            <div style="font-size:12px;color:#3d7a8b;font-weight:600;margin-bottom:8px;">${isEn ? cards[2].name_en : cards[2].name_zh}</div>
+                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">${t('diamondOuterInfluence')}</div>
                             <div style="font-size:13px;line-height:1.7;color:#e0e0e0;text-align:left;">${cards[2].upright.description}</div>
                         </td>
                     </tr>
@@ -4997,7 +5467,7 @@ window.drawCards = drawCards;
             sectionC.style.animationDelay = '0.3s';
             sectionC.innerHTML = `
                 <div class="interp-card-header" style="background:linear-gradient(135deg, rgba(236,72,153,0.2), rgba(16,185,129,0.2));padding:12px;border-radius:12px;margin-bottom:15px;">
-                    <span style="font-size:16px;font-weight:bold;color:#EC4899;">C. 解决的关键与结果</span>
+                    <span style="font-size:16px;font-weight:bold;color:#EC4899;">${t('diamondSolutionTitle')}</span>
                 </div>
                 <table style="width:100%;border-collapse:collapse;">
                     <tr>
@@ -5007,8 +5477,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${cards[3].name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:12px;color:#EC4899;font-weight:600;margin-bottom:8px;">${cards[3].name_zh}</div>
-                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">解决这个问题需要的</div>
+                            <div style="font-size:12px;color:#EC4899;font-weight:600;margin-bottom:8px;">${isEn ? cards[3].name_en : cards[3].name_zh}</div>
+                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">${t('diamondSolution')}</div>
                             <div style="font-size:13px;line-height:1.7;color:#e0e0e0;text-align:left;">${cards[3].upright.description}</div>
                         </td>
                         <td style="width:50%;padding:10px;text-align:center;vertical-align:top;">
@@ -5017,8 +5487,8 @@ window.drawCards = drawCards;
                                      onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;color:#d4a853;font-size:10px;text-align:center;padding:4px;\\'>${cards[4].name_zh}</div>'"
                                      style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:12px;color:#10B981;font-weight:600;margin-bottom:8px;">${cards[4].name_zh}</div>
-                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">这个问题的答案与了解</div>
+                            <div style="font-size:12px;color:#10B981;font-weight:600;margin-bottom:8px;">${isEn ? cards[4].name_en : cards[4].name_zh}</div>
+                            <div style="font-size:13px;color:#9ca3af;margin-bottom:4px;">${t('diamondAnswer')}</div>
                             <div style="font-size:13px;line-height:1.7;color:#e0e0e0;text-align:left;">${cards[4].upright.description}</div>
                         </td>
                     </tr>
@@ -5054,10 +5524,10 @@ window.drawCards = drawCards;
             const past = cards[0], present = cards[1], future = cards[2];
             let s = '';
             
-            s += `过去的${past.name_zh}显示你有一定的积累和经验；`;
-            s += `现在的${present.name_zh}说明你正处于需要觉察的状态；`;
-            s += `未来的${future.name_zh}显示事情有望朝着好的方向发展呢！`;
-            s += `整体能量正向~保持觉知，信任生命的流动！`;
+            s += `${t('threeSummary1')}${isEn ? past.name_en : past.name_zh}${t('threeSummary2')}`;
+            s += `${t('threeSummary3')}${isEn ? present.name_en : present.name_zh}${t('threeSummary4')}`;
+            s += `${t('threeSummary5')}${isEn ? future.name_en : future.name_zh}${t('threeSummary6')}`;
+            s += t('threeSummary7');
             
             return s;
         }
@@ -5068,10 +5538,10 @@ window.drawCards = drawCards;
             const aResult = cards[1], aPath = cards[2];
             const bResult = cards[3], bPath = cards[4];
             
-            let s = `针对你的现状，目前情况需要你静心感受；`;
-            s += `选择A方面，${aResult.name_zh}显示积极能量，${aPath.name_zh}趋势向好。`;
-            s += `选择B方面，${bResult.name_zh}显示积极能量，${bPath.name_zh}趋势向好。`;
-            s += `两个选项各有启示~跟随内心的直觉做选择吧！`;
+            let s = t('choiceSummary1');
+            s += `${t('choiceSummaryA1')}${isEn ? aResult.name_en : aResult.name_zh}${t('choiceSummaryA2')}${isEn ? aPath.name_en : aPath.name_zh}${t('choiceSummaryA3')}`;
+            s += `${t('choiceSummaryB1')}${isEn ? bResult.name_en : bResult.name_zh}${t('choiceSummaryA2')}${isEn ? bPath.name_en : bPath.name_zh}${t('choiceSummaryA3')}`;
+            s += t('choiceSummaryEnd');
             
             return s;
         }
@@ -5081,9 +5551,9 @@ window.drawCards = drawCards;
             const theirFuture = cards[2], yourFuture = cards[5];
             let s = '';
             
-            s += `对方未来的态度${theirFuture.name_zh}显示出积极信号~`;
-            s += `而你对这段关系的期待${yourFuture.name_zh}是积极正向的呢！`;
-            s += `整体来看，这段关系的能量和谐，双方都在正向发展~`;
+            s += `${t('loveSummary1')}${isEn ? theirFuture.name_en : theirFuture.name_zh}${t('loveSummary2')}`;
+            s += `${t('loveSummary3')}${isEn ? yourFuture.name_en : yourFuture.name_zh}${t('loveSummary4')}`;
+            s += t('loveSummary5');
             
             return s;
         }
@@ -5091,9 +5561,9 @@ window.drawCards = drawCards;
         // 今日静心综合建议（单牌）
         function generateMeditationSummary(cards) {
             const card = cards[0];
-            let s = `今日的${card.name_zh}提醒你：`;
+            let s = `${t('meditationSummary1')}${isEn ? card.name_en : card.name_zh}${t('meditationSummary2')}`;
             s += card.upright.description;
-            s += `~静心感受这张牌的能量，让它指引你今天的行动吧！`;
+            s += t('meditationSummary3');
             
             return s;
         }
@@ -5103,11 +5573,11 @@ window.drawCards = drawCards;
             const mind = cards[0], subconscious = cards[1];
             const obstacle = cards[2], advice = cards[3];
             
-            let s = `头脑层面显示${mind.name_zh}，而潜意识层面是${subconscious.name_zh}。`;
-            s += `这说明你的理性与内在可能有些不同调呢~`;
-            s += `目前的困难${obstacle.name_zh}需要面对，`;
-            s += `潜意识的建议${advice.name_zh}会指引你找到答案！`;
-            s += `信任你的直觉，答案已经在内心深处~`;
+            let s = `${t('universalSummary1')}${isEn ? mind.name_en : mind.name_zh}${t('universalSummary2')}${isEn ? subconscious.name_en : subconscious.name_zh}${t('universalSummary3')}`;
+            s += t('universalSummary4');
+            s += `${t('universalSummary5')}${isEn ? obstacle.name_en : obstacle.name_zh}${t('universalSummary6')}`;
+            s += `${t('universalSummary7')}${isEn ? advice.name_en : advice.name_zh}${t('universalSummary8')}`;
+            s += t('universalSummary9');
             
             return s;
         }
@@ -5117,11 +5587,11 @@ window.drawCards = drawCards;
             const current = cards[0], inner = cards[1];
             const outer = cards[2], solution = cards[3], answer = cards[4];
             
-            let s = `现状${current.name_zh}受到内外因素的共同影响。`;
-            s += `内在层面${inner.name_zh}在默默运作，`;
-            s += `外在环境${outer.name_zh}也在起作用。`;
-            s += `要解决问题，${solution.name_zh}是关键所在。`;
-            s += `最终的答案${answer.name_zh}正在向你揭示~静心觉察，答案已经呈现！`;
+            let s = `${t('diamondSummary1')}${isEn ? current.name_en : current.name_zh}${t('diamondSummary2')}`;
+            s += `${t('diamondSummary3')}${isEn ? inner.name_en : inner.name_zh}${t('diamondSummary4')}`;
+            s += `${t('diamondSummary5')}${isEn ? outer.name_en : outer.name_zh}${t('diamondSummary6')}`;
+            s += `${t('diamondSummary7')}${isEn ? solution.name_en : solution.name_zh}${t('diamondSummary8')}`;
+            s += `${t('diamondSummary9')}${isEn ? answer.name_en : answer.name_zh}${t('diamondSummary10')}`;
             
             return s;
         }
@@ -5147,23 +5617,23 @@ window.drawCards = drawCards;
                 <div class="detail-image">
                     <img src="${getCardImagePath(card)}" alt="${card.name_zh}" onerror="this.style.display='none'">
                 </div>
-                <div class="detail-name">${card.name_zh} / ${card.name_en}</div>
+                <div class="detail-name">${isEn ? card.name_en : card.name_zh} / ${isEn ? card.name_zh : card.name_en}</div>
                 ${card.type !== 'major' ? `<div class="detail-element" style="color: #3d7a8b; font-size: 14px; margin-bottom: 15px;">${getElementName(card.type)}</div>` : ''}
                 
                 <div class="detail-section">
-                    <h4>✨ 关键词</h4>
+                    <h4>${t('keywords')}</h4>
                     <div class="detail-keywords">
                         ${interp.keyword.map(k => `<span class="detail-keyword">${k}</span>`).join('')}
                     </div>
                 </div>
                 
                 <div class="detail-section">
-                    <h4>📖 牌面解读</h4>
+                    <h4>${t('cardInterpretation')}</h4>
                     <p>${interp.description}</p>
                 </div>
                 
                 <div class="detail-section">
-                    <h4>🖼️ 牌面图像</h4>
+                    <h4>${t('cardImagery')}</h4>
                     <p>${card.imagery}</p>
                 </div>
             `;
@@ -5191,8 +5661,8 @@ window.drawCards = drawCards;
                 container.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-icon">🔮</div>
-                        <div class="empty-text">还没有占卜记录哦~</div>
-                        <div class="empty-hint">快去开始你的第一次占卜吧</div>
+                        <div class="empty-text" id="noRecordsText" data-i18n="noRecordsAlt">还没有占卜记录哦~</div>
+                        <div class="empty-hint" id="noRecordsHint" data-i18n="noRecordsHintAlt">快去开始你的第一次占卜吧</div>
                     </div>
                 `;
                 return;
@@ -5255,16 +5725,16 @@ window.drawCards = drawCards;
             const config = SPREAD_CONFIGS[currentSpreadType];
             const question = document.getElementById('resultQuestion').textContent;
             
-            let shareText = `✨ 择天禅卡解读\n\n${question}\n牌阵：${config.name[currentLang]}\n\n抽取牌卡：\n`;
+            let shareText = `✨ ${t('shareTitleText')}\n\n${question}\n${t('shareSpreadLabel')}${config.name[currentLang]}\n\n${t('shareTitle')}：\n`;
             drawnCards.forEach((d, i) => {
                 const card = d.card;
                 const pos = config.positions[i].name[currentLang];
-                shareText += `${pos}：${card.name_zh}（禅卡）\n`;
+                shareText += `${pos}：${isEn ? card.name_en : card.name_zh}（${t('zenCardLabel')}）\n`;
             });
-            shareText += `\n💫 仅供参考娱乐`;
+            shareText += `\n${t('shareDisclaimer')}`;
             
             if (navigator.share) {
-                navigator.share({ title: '择天禅卡解读', text: shareText });
+                navigator.share({ title: t('shareTitleText'), text: shareText });
             } else {
                 navigator.clipboard.writeText(shareText).then(() => alert('已复制到剪贴板~'));
             }
@@ -5273,19 +5743,19 @@ window.drawCards = drawCards;
         // ========== 分享图片功能 ==========
         async function shareResultImage() {
             if (typeof html2canvas === 'undefined') {
-                alert('图片生成库加载中，请稍后重试');
+                alert(t('imageGenerating'));
                 return;
             }
             
             try {
                 const config = SPREAD_CONFIGS[currentSpreadType];
-                const question = document.getElementById('resultQuestion').innerHTML.replace(/<[^>]*>/g, '').replace('你的问题：', '');
+                const question = document.getElementById('resultQuestion').innerHTML.replace(/<[^>]*>/g, '').replace(t('yourQuestion'), '');
                 const summary = document.getElementById('summaryText').textContent;
                 const spreadName = config.name[currentLang];
                 
                 // 获取当前日期
                 const now = new Date();
-                const dateStr = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日`;
+                const dateStr = isEn ? `${now.getMonth()+1}/${now.getDate()}/${now.getFullYear()}` : `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日`;
                 
                 // 生成单张牌卡HTML
                 function cardHtml(idx, width = '70px', height = '105px') {
@@ -5323,8 +5793,8 @@ window.drawCards = drawCards;
                             <div style="width:100px;height:150px;border-radius:10px;overflow:hidden;border:3px solid #d4a853;margin:0 auto 10px;box-shadow:0 6px 20px rgba(212,168,83,0.4);">
                                 <img src="${imgSrc}" alt="${card.name_zh}" onerror="this.style.display='none'" style="width:100%;height:100%;object-fit:cover;">
                             </div>
-                            <div style="font-size:14px;color:#d4a853;font-weight:600;">${card.name_zh}</div>
-                            <div style="font-size:12px;color:#3d7a8b;margin-top:4px;">今日指引</div>
+                            <div style="font-size:14px;color:#d4a853;font-weight:600;">${isEn ? card.name_en : card.name_zh}</div>
+                            <div style="font-size:12px;color:#3d7a8b;margin-top:4px;">${t('todayGuidance')}</div>
                         </div>
                     `;
                     
@@ -5348,13 +5818,13 @@ window.drawCards = drawCards;
                     // 双排：上排对方，下排自己
                     cardsLayoutHtml = `
                         <div style="padding:15px 0;">
-                            <div style="text-align:center;font-size:12px;color:#EC4899;margin-bottom:8px;">对方状态</div>
+                            <div style="text-align:center;font-size:12px;color:#EC4899;margin-bottom:8px;">${t('loveTheirLabel')}</div>
                             <div style="display:flex;justify-content:center;gap:15px;margin-bottom:15px;">
                                 ${cardHtml(0, '60px', '90px')}
                                 ${cardHtml(1, '60px', '90px')}
                                 ${cardHtml(2, '60px', '90px')}
                             </div>
-                            <div style="text-align:center;font-size:12px;color:#3d7a8b;margin-bottom:8px;">自己状态</div>
+                            <div style="text-align:center;font-size:12px;color:#3d7a8b;margin-bottom:8px;">${t('loveMyLabel')}</div>
                             <div style="display:flex;justify-content:center;gap:15px;">
                                 ${cardHtml(3, '60px', '90px')}
                                 ${cardHtml(4, '60px', '90px')}
@@ -5419,29 +5889,29 @@ window.drawCards = drawCards;
                 template.id = 'shareTemplate';
                 template.innerHTML = `
                     <div class="share-header">
-                        <div class="share-logo">🧘 择天禅卡 <span style="background:linear-gradient(135deg,#6b7280,#4b5563);color:white;padding:4px 12px;border-radius:12px;font-size:11px;display:inline-block;margin-left:10px;">Free</span></div>
+                        <div class="share-logo">🧘 ${isEn ? 'Zen Cards' : '择天禅卡'} <span style="background:linear-gradient(135deg,#6b7280,#4b5563);color:white;padding:4px 12px;border-radius:12px;font-size:11px;display:inline-block;margin-left:10px;">Free</span></div>
                         <div class="share-spread-name">${spreadName}</div>
                         <div class="share-date">${dateStr}</div>
                     </div>
                     
                     <div class="share-cards-section">
-                        <div class="share-cards-title">${currentLang === 'zh' ? '📜 抽取牌卡' : '📜 Drawn Cards'}</div>
+                        <div class="share-cards-title">📜 ${t('shareTitle')}</div>
                         ${cardsLayoutHtml}
                     </div>
                     
                     <div class="share-cards-section">
-                        <div class="share-cards-title">${currentLang === 'zh' ? '📖 牌面解读' : '📖 Card Interpretation'}</div>
+                        <div class="share-cards-title">${t('shareInterpTitle')}</div>
                         ${interpHtml}
                     </div>
                     
                     <div class="share-summary">
-                        <div class="share-summary-title">${currentLang === 'zh' ? '💫 综合建议' : '💫 Comprehensive Advice'}</div>
+                        <div class="share-summary-title">${t('shareSummaryLabel')}</div>
                         <div class="share-summary-text">${summary}</div>
                     </div>
                     
                     <div class="share-footer">
-                        <div class="share-footer-text">${currentLang === 'zh' ? '择天禅卡 · 静心觉察当下' : 'Zen Cards · Still, Aware, Present'}</div>
-                        <div class="share-footer-brand">© 择天老师 2025-2026</div>
+                        <div class="share-footer-text">${t('shareFooter')}</div>
+                        <div class="share-footer-brand">© ${isEn ? 'Master Zeyue' : '择天老师'} 2025-2026</div>
                     </div>
                 `;
                 
@@ -5468,11 +5938,11 @@ window.drawCards = drawCards;
                 link.href = dataUrl;
                 link.click();
                 
-                alert('图片已生成，正在下载~');
+                alert(t('imageGenerated'));
                 
             } catch (error) {
                 console.error('生成图片失败:', error);
-                alert('生成图片失败，请重试');
+                alert(t('imageGenFailed'));
             }
         }
         
@@ -5513,39 +5983,13 @@ window.drawCards = drawCards;
         // 语言切换
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentLang = btn.dataset.lang;
-                updateUITranslations();
+                setLanguage(btn.dataset.lang);
             });
         });
         
-        // 更新UI翻译
+        // 更新UI翻译（兼容旧调用）
         function updateUITranslations() {
-            const el = id => document.getElementById(id);
-            if (el('welcomeTitle')) el('welcomeTitle').textContent = t('welcomeTitle');
-            if (el('welcomeText')) el('welcomeText').innerHTML = t('welcomeText');
-            if (el('spreadTitle')) el('spreadTitle').textContent = t('selectSpread');
-            if (el('navHome')) el('navHome').textContent = t('navHome');
-            if (el('navHistory')) el('navHistory').textContent = t('navHistory');
-            if (el('navAbout')) el('navAbout').textContent = t('navAbout');
-            if (el('historyTitle')) el('historyTitle').textContent = t('historyTitle');
-            if (el('noRecordsText')) el('noRecordsText').textContent = t('noRecords');
-            if (el('noRecordsHint')) el('noRecordsHint').textContent = t('noRecordsHint');
-            if (el('questionTip')) el('questionTip').textContent = t('questionTip');
-            if (el('questionInput')) el('questionInput').placeholder = t('questionPlaceholder');
-            if (el('progressLabel')) el('progressLabel').textContent = t('drawn');
-            if (el('cardsText')) el('cardsText').textContent = t('cards');
-            if (el('redoBtn')) el('redoBtn').textContent = t('redoReading');
-            if (el('shareBtn')) el('shareBtn').textContent = t('shareImage');
-            if (el('finishBtn')) el('finishBtn').textContent = t('finishReading');
-            if (el('summaryTitle')) el('summaryTitle').textContent = t('summaryTitle');
-            if (el('cardDetailTitle')) el('cardDetailTitle').textContent = t('cardDetail');
-            if (currentSpreadType && SPREAD_CONFIGS[currentSpreadType]) {
-                if (el('spreadNameHeader')) el('spreadNameHeader').textContent = SPREAD_CONFIGS[currentSpreadType].name[currentLang];
-                if (el('resultSpreadName')) el('resultSpreadName').textContent = SPREAD_CONFIGS[currentSpreadType].name[currentLang];
-            }
-            updatePositionLabels();
+            applyLanguage();
         }
         
         function updatePositionLabels() {
@@ -5610,8 +6054,10 @@ window.drawCards = drawCards;
         
         // 初始化
         document.addEventListener('DOMContentLoaded', function() {
+            // 加载保存的语言偏好
+            applyLanguage();
             loadHistory();
-            console.log('DOM loaded, spread-card events ready');
+            console.log('DOM loaded, spread-card events ready, lang:', currentLang);
         });
         
         // 将关键函数暴露到全局作用域
